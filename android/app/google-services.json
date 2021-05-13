@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "475576219904",
+    "project_id": "time-tracker-adrea-course",
+    "storage_bucket": "time-tracker-adrea-course.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475576219904:android:03174d8018d7662b375be5",
+        "android_client_info": {
+          "package_name": "com.example.time_tracker_code_with_andrea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475576219904-eej1g3alsrjbr987cb1h7jc5u6dm23gj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.time_tracker_code_with_andrea",
+            "certificate_hash": "307ada6f10b33e5a22e9ceb342503cac0a7f8976"
+          }
+        },
+        {
+          "client_id": "475576219904-130he4nbjqk8b2b1s18847s6a443mjsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7v6cCh8rGxZEamo_xbhN5APUoiHd52UM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475576219904-130he4nbjqk8b2b1s18847s6a443mjsi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

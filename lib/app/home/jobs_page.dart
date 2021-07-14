@@ -1,10 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:time_tracker_code_with_andrea/commom_widget/show_alert_dialog.dart';
+import 'package:time_tracker_code_with_andrea/commom_widget/show_exception_alert_dialog.dart';
 import 'package:time_tracker_code_with_andrea/services/auth.dart';
+import 'package:time_tracker_code_with_andrea/services/database.dart';
 
 
-class HomePage extends StatelessWidget {
+class JobsPage extends StatelessWidget {
 
   Future<void> _signOut(BuildContext context) async{
     try {
@@ -26,11 +29,25 @@ class HomePage extends StatelessWidget {
       _signOut(context);
     }
   }
+
+
+  Future<void> _createJob(BuildContext context) async {
+
+    try {
+      final database = Provider.of<Database>(context, listen: false);
+      await database.createJob({
+        'name': 'Blogging',
+        'ratePerHour': 10,
+      });
+    } on FirebaseException catch (e){
+      showExceptionAlertDialog(context, title: 'Operation failed', exception: e);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Text('Jobs'),
         actions: <Widget>[
           FlatButton(
             child: Text(
@@ -41,6 +58,13 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed:()=> _createJob(context),
+      ),
     );
   }
+
+
+
 }

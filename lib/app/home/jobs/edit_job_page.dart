@@ -13,8 +13,7 @@ class EditJobPage extends StatefulWidget {
 
   const EditJobPage({Key key, @required this.database, this.job}) : super(key: key);
 
-  static Future<void> show(BuildContext context, {Job job}) async {
-    final database = Provider.of<Database>(context, listen: false);
+  static Future<void> show(BuildContext context, {Database database,Job job}) async {
     await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => EditJobPage(
@@ -90,7 +89,7 @@ class _EditJobPageState extends State<EditJobPage> {
               defaultActionText: 'OK');
         } else {
           final id = widget.job?.id ?? documentIdFromCurrentDate();
-          final job = Job(name: _name, ratePerHour: _ratePerHour);
+          final job = Job(id:id,name: _name, ratePerHour: _ratePerHour);
           await widget.database.setJob(job);
           Navigator.of(context).pop();
         }
